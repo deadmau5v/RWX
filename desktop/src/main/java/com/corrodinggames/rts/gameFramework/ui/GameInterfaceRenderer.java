@@ -401,7 +401,7 @@ public class GameInterfaceRenderer extends Serializable {
             }
             this.gameEngine.graphicsEngine2.a(this.zoomButtonTexture, this.zoomButtonRect.a, this.zoomButtonRect.b, staticPaint, 0.0f, f3);
             boolean z = this.isZoomButtonPressed;
-            if (!this.isZoomButtonPressed && this.gameUI.b(this.zoomButtonRect.a, this.zoomButtonRect.b, this.zoomButtonRect.b(), this.zoomButtonRect.c(), IconGroup.zoomButton)) {
+            if (!this.isZoomButtonPressed && this.gameUI.b(this.zoomButtonRect.a, this.zoomButtonRect.b, this.zoomButtonRect.width(), this.zoomButtonRect.height(), IconGroup.zoomButton)) {
                 this.isZoomButtonPressed = true;
                 this.initialTouchY = this.gameUI.selectionBoxStartY;
             }
@@ -1333,7 +1333,7 @@ public class GameInterfaceRenderer extends Serializable {
                 this.zoomButtonRect.c = (int)(width + n7 - 2.0f);
                 this.zoomButtonRect.b = (int)(currentScreenHeightPixels - h * n17);
                 this.zoomButtonRect.d = (int)(this.zoomButtonRect.b + h * n17);
-                if (this.gameUI.a(this.zoomButtonRect.a, this.zoomButtonRect.b, this.zoomButtonRect.b(), this.zoomButtonRect.c(), "\\/", IconGroup.none, false, Color.a(80, 100, 150, 100), this.gameUI.buildingPreviewPaint, null) && this.gameUI.isInputEnabled()) {
+                if (this.gameUI.a(this.zoomButtonRect.a, this.zoomButtonRect.b, this.zoomButtonRect.width(), this.zoomButtonRect.height(), "\\/", IconGroup.none, false, Color.a(80, 100, 150, 100), this.gameUI.buildingPreviewPaint, null) && this.gameUI.isInputEnabled()) {
                     n16 += 3.0f * n6;
                     this.gameUI.isSelectionBoxActive = false;
                 }
@@ -1345,7 +1345,7 @@ public class GameInterfaceRenderer extends Serializable {
                 this.zoomButtonRect.c = (int)(width + n7 - 2.0f);
                 this.zoomButtonRect.b = (int)n14;
                 this.zoomButtonRect.d = (int)(this.zoomButtonRect.b + h * n17);
-                if (this.gameUI.a(this.zoomButtonRect.a, this.zoomButtonRect.b, this.zoomButtonRect.b(), this.zoomButtonRect.c(), "/\\", IconGroup.none, false, Color.a(80, 100, 150, 100), this.gameUI.buildingPreviewPaint, null) && this.gameUI.isInputEnabled()) {
+                if (this.gameUI.a(this.zoomButtonRect.a, this.zoomButtonRect.b, this.zoomButtonRect.width(), this.zoomButtonRect.height(), "/\\", IconGroup.none, false, Color.a(80, 100, 150, 100), this.gameUI.buildingPreviewPaint, null) && this.gameUI.isInputEnabled()) {
                     n16 -= 3.0f * n6;
                     this.gameUI.isSelectionBoxActive = false;
                 }
@@ -1513,7 +1513,7 @@ public class GameInterfaceRenderer extends Serializable {
                             else {
                                 n26 = Color.a(110, 210, 110, 110);
                             }
-                            final int randomIntInRange = Utility.getRandomIntInRange(n26, paint2.e(), n25);
+                            final int randomIntInRange = Utility.getRandomIntInRange(n26, paint2.getColor(), n25);
                             paint2 = this.paintUnitInfo;
                             paint2.b(randomIntInRange);
                         }
@@ -1577,29 +1577,29 @@ public class GameInterfaceRenderer extends Serializable {
                         rect = this.minimapRect;
                         rect.a(0, 0, e2.m(), e2.l());
                     }
-                    final float float2 = this.zoomButtonRect.c() * 0.7f / rect.c();
-                    final int n27 = (int)(this.zoomButtonRect.d() - rect.b() * 0.5f * float2);
-                    final int a4 = (int)(this.zoomButtonRect.e() - rect.c() * 0.5f * float2);
+                    final float float2 = this.zoomButtonRect.height() * 0.7f / rect.height();
+                    final int n27 = (int)(this.zoomButtonRect.centerX() - rect.width() * 0.5f * float2);
+                    final int a4 = (int)(this.zoomButtonRect.centerY() - rect.height() * 0.5f * float2);
                     this.paintMinimap.a(100, 255, 255, 255);
                     final RectF minimapRectF = this.minimapRectF;
-                    minimapRectF.a((float)n27, (float)a4, n27 + rect.b() * float2, a4 + rect.c() * float2);
+                    minimapRectF.a((float)n27, (float)a4, n27 + rect.width() * float2, a4 + rect.height() * float2);
                     this.gameEngine.graphicsEngine2.a(e2, rect, minimapRectF, this.paintMinimap);
                     b11 = true;
                 }
                 else if (as != null) {
-                    final float float3 = (float)this.zoomButtonRect.d();
-                    float float2 = (float)this.zoomButtonRect.e();
+                    final float float3 = (float)this.zoomButtonRect.centerX();
+                    float float2 = (float)this.zoomButtonRect.centerY();
                     if (timerValue > 0.5) {
                         ++float2;
                     }
                     if (timerValue < -0.5) {
                         --float2;
                     }
-                    float float4 = this.zoomButtonRect.c() * 0.7f;
-                    float float5 = this.zoomButtonRect.c() * 0.95f;
+                    float float4 = this.zoomButtonRect.height() * 0.7f;
+                    float float5 = this.zoomButtonRect.height() * 0.95f;
                     if (GameUI.bO) {
-                        float4 = this.zoomButtonRect.c() * 0.4f;
-                        float5 = this.zoomButtonRect.c() * 0.85f;
+                        float4 = this.zoomButtonRect.height() * 0.4f;
+                        float5 = this.zoomButtonRect.height() * 0.85f;
                     }
                     this.selectionRectF.a(this.zoomButtonRect);
                     if (this.selectionRectF.b(this.rectF)) {
@@ -1651,24 +1651,24 @@ public class GameInterfaceRenderer extends Serializable {
                         rect2 = this.minimapRect;
                         rect2.a(0, 0, showingNotEnoughEnergy.m(), showingNotEnoughEnergy.l());
                     }
-                    final float float4 = this.zoomButtonRect.c() * 0.7f / rect2.c();
-                    final int a4 = (int)(this.zoomButtonRect.d() - rect2.b() * 0.5f * float4);
-                    final int n35 = (int)(this.zoomButtonRect.e() - rect2.c() * 0.5f * float4);
+                    final float float4 = this.zoomButtonRect.height() * 0.7f / rect2.height();
+                    final int a4 = (int)(this.zoomButtonRect.centerX() - rect2.width() * 0.5f * float4);
+                    final int n35 = (int)(this.zoomButtonRect.centerY() - rect2.height() * 0.5f * float4);
                     this.paintMinimap.b(unitCommand.getNotAvailableReason());
                     final RectF minimapRectF2 = this.minimapRectF;
-                    minimapRectF2.a((float)a4, (float)n35, a4 + rect2.b() * float4, n35 + rect2.c() * float4);
+                    minimapRectF2.a((float)a4, (float)n35, a4 + rect2.width() * float4, n35 + rect2.height() * float4);
                     this.gameEngine.graphicsEngine2.a(showingNotEnoughEnergy, rect2, minimapRectF2, this.paintMinimap);
                     b11 = true;
                 }
                 if (b5) {
                     final String d = unitCommand.d();
                     if (a2) {
-                        this.gameEngine.graphicsEngine2.a(this.lockIconTexture, (float)(this.zoomButtonRect.a + 25), this.zoomButtonRect.g(), null);
+                        this.gameEngine.graphicsEngine2.a(this.lockIconTexture, (float)(this.zoomButtonRect.a + 25), this.zoomButtonRect.exactCenterY(), null);
                     }
                     final float float4 = (float)this.gameEngine.graphicsEngine2.b(d, this.gameUI.buildingPreviewPaint);
-                    if (float4 > this.zoomButtonRect.b() - 2) {
+                    if (float4 > this.zoomButtonRect.width() - 2) {
                         final float float5 = (float)this.gameEngine.graphicsEngine2.b(d, this.gameUI.rallyPointPaint);
-                        if (float5 > this.zoomButtonRect.b() - 2) {
+                        if (float5 > this.zoomButtonRect.width() - 2) {
                             this.paintUnitInfo.a(this.gameUI.selectionBoxBorderPaint);
                         }
                         else {
@@ -1707,9 +1707,9 @@ public class GameInterfaceRenderer extends Serializable {
                         this.paintUnitInfo.a(155, 255, 255, 255);
                     }
                     final int a4 = this.gameEngine.graphicsEngine2.a(d, this.paintUnitInfo);
-                    float n28 = this.zoomButtonRect.g() + a4 / 2;
+                    float n28 = this.zoomButtonRect.exactCenterY() + a4 / 2;
                     if (b6) {
-                        n28 = this.zoomButtonRect.g();
+                        n28 = this.zoomButtonRect.exactCenterY();
                     }
                     if (b11 && !d.contains((CharSequence)"\n")) {
                         if (b6) {
@@ -1720,10 +1720,10 @@ public class GameInterfaceRenderer extends Serializable {
                         }
                     }
                     if (b6) {
-                        GraphicsUtils.a(d, this.zoomButtonRect.f(), n28, this.paintUnitInfo);
+                        GraphicsUtils.a(d, this.zoomButtonRect.exactCenterX(), n28, this.paintUnitInfo);
                     }
                     else {
-                        this.gameEngine.graphicsEngine2.a(d, this.zoomButtonRect.f(), n28, this.paintUnitInfo);
+                        this.gameEngine.graphicsEngine2.a(d, this.zoomButtonRect.exactCenterX(), n28, this.paintUnitInfo);
                     }
                 }
                 int n36 = 0;
@@ -2365,8 +2365,8 @@ public class GameInterfaceRenderer extends Serializable {
         final Rect zoomButtonRect = this.zoomButtonRect;
         zoomButtonRect.c *= (int)float7;
         this.gameEngine.graphicsEngine2.c(this.zoomButtonRect, paint);
-        this.gameEngine.graphicsEngine2.a(string4, (float)n, integer6 + (this.gameUI.buildingPreviewPaint.k() + 5.0f) * 1.0f, this.gameUI.buildingPreviewPaint);
-        this.gameEngine.graphicsEngine2.a(string5, (float)n, integer6 + (this.gameUI.buildingPreviewPaint.k() + 5.0f) * 2.0f, this.gameUI.buildingPreviewPaint);
+        this.gameEngine.graphicsEngine2.a(string4, (float)n, integer6 + (this.gameUI.buildingPreviewPaint.getTextSize() + 5.0f) * 1.0f, this.gameUI.buildingPreviewPaint);
+        this.gameEngine.graphicsEngine2.a(string5, (float)n, integer6 + (this.gameUI.buildingPreviewPaint.getTextSize() + 5.0f) * 2.0f, this.gameUI.buildingPreviewPaint);
     }
 
     void a(final float float1, final boolean boolean2) {
@@ -2403,7 +2403,7 @@ public class GameInterfaceRenderer extends Serializable {
         if (boolean2) {
             this.gameEngine.graphicsEngine2.a(this.pauseTexture, (float)this.unitRect2.a, (float)this.unitRect2.b, this.paintHealthBar, 0.0f, float2);
             if (this.gameEngine.settingsEngine.newRender) {
-                this.minimapRect.a(this.unitRect2.d() - 4, this.unitRect2.e() - 4, this.unitRect2.d() + 4, this.unitRect2.e() + 4);
+                this.minimapRect.a(this.unitRect2.centerX() - 4, this.unitRect2.centerY() - 4, this.unitRect2.centerX() + 4, this.unitRect2.centerY() + 4);
                 this.paintMinimap.a(100, 0, 155, 0);
                 this.gameEngine.graphicsEngine2.b(this.minimapRect, this.paintMinimap);
             }
@@ -2424,12 +2424,12 @@ public class GameInterfaceRenderer extends Serializable {
             n = this.fastTexture.q;
             n2 = (int)(n * this.gameEngine.screenScale * 1.6f);
             n3 = (int)(this.gameEngine.currentScreenWidthPixels / 2.0f);
-            n4 = 7 + (int)this.gameUI.unitRangePaint.k();
+            n4 = 7 + (int)this.gameUI.unitRangePaint.getTextSize();
             this.gameEngine.graphicsEngine2.a(Utility.copyStream(this.gameEngine.lastTick / 1000), (float)n3, (float)n4, this.gameUI.unitRangePaint);
             n4 += n2 / 2 + 10;
             n3 += n2 / 2 + 5;
             this.unitRect2.a(n3, n4, n3 + n2, n4 + n2);
-            this.unitRect2.a(-this.unitRect2.b() / 2, -this.unitRect2.c() / 2);
+            this.unitRect2.a(-this.unitRect2.width() / 2, -this.unitRect2.height() / 2);
             if (boolean2) {
                 this.gameEngine.graphicsEngine2.a(this.fastTexture, (float)this.unitRect2.a, (float)this.unitRect2.b, this.paintHealthBar, 0.0f, (float)(n2 / n));
             }
@@ -2438,14 +2438,14 @@ public class GameInterfaceRenderer extends Serializable {
                 this.gameEngine.replayEngine.b();
             }
             if (this.gameEngine.gameSpeed != 1.0f && boolean2) {
-                this.gameEngine.graphicsEngine2.a("x" + this.gameEngine.gameSpeed, (float)(this.unitRect2.d() + n2 / 2), (float)this.unitRect2.e(), this.gameUI.buildingPreviewPaint);
+                this.gameEngine.graphicsEngine2.a("x" + this.gameEngine.gameSpeed, (float)(this.unitRect2.centerX() + n2 / 2), (float)this.unitRect2.centerY(), this.gameUI.buildingPreviewPaint);
             }
             final Texture replayPauseTexture = this.replayPauseTexture;
             n = replayPauseTexture.q;
             n2 = (int)(n * this.gameEngine.screenScale * 1.6f);
             n3 -= n2 + 5;
             this.unitRect2.a(n3, n4, n3 + n2, n4 + n2);
-            this.unitRect2.a(-this.unitRect2.b() / 2, -this.unitRect2.c() / 2);
+            this.unitRect2.a(-this.unitRect2.width() / 2, -this.unitRect2.height() / 2);
             if (boolean2) {
                 this.gameEngine.graphicsEngine2.a(replayPauseTexture, (float)this.unitRect2.a, (float)this.unitRect2.b, this.paintHealthBar, 0.0f, (float)(n2 / n));
             }
@@ -2456,7 +2456,7 @@ public class GameInterfaceRenderer extends Serializable {
             final Texture leaderboardTexture = this.leaderboardTexture;
             n3 = (int)(this.gameEngine.screenWidth - this.gameEngine.sidebarWidth - (n2 + 5));
             this.unitRect2.a(n3, n4, n3 + n2, n4 + n2);
-            this.unitRect2.a(-this.unitRect2.b() / 2, -this.unitRect2.c() / 2);
+            this.unitRect2.a(-this.unitRect2.width() / 2, -this.unitRect2.height() / 2);
             if (boolean2) {
                 this.gameEngine.graphicsEngine2.a(leaderboardTexture, (float)this.unitRect2.a, (float)this.unitRect2.b, this.paintHealthBar, 0.0f, (float)(n2 / n));
             }

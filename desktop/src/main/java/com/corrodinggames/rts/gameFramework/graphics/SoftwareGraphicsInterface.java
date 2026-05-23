@@ -296,8 +296,8 @@ public class SoftwareGraphicsInterface implements GraphicsEngine {
     public void a(Texture texture, Rect rect, float f2, float f3, float f4, Paint paint) {
         GraphicsInterface graphicsInterface = this.y;
         graphicsInterface.b();
-        int iB = rect.b() >> 1;
-        int iC = rect.c() >> 1;
+        int iB = rect.width() >> 1;
+        int iC = rect.height() >> 1;
         this.p.a(f2 - iB, f3 - iC, f2 + iB, f3 + iC);
         graphicsInterface.a(f4 + 90.0f, f2, f3);
         a(texture, rect, this.p, paint);
@@ -330,7 +330,7 @@ public class SoftwareGraphicsInterface implements GraphicsEngine {
         }
         Bitmap bitmapC = c(texture);
         boolean zF = texture.f();
-        if (paint.f() < 255) {
+        if (paint.getAlpha() < 255) {
             zF = true;
         }
         int iB = this.i.b();
@@ -420,7 +420,7 @@ public class SoftwareGraphicsInterface implements GraphicsEngine {
             }
             return;
         }
-        int iE = paint.e() >>> 24;
+        int iE = paint.getColor() >>> 24;
         while (i12 < i14) {
             int i25 = i12 + i15;
             int i26 = i13 + (((int) f4) * iB2) + i16;
@@ -494,7 +494,7 @@ public class SoftwareGraphicsInterface implements GraphicsEngine {
         int i6 = i2 * iB;
         int i7 = i3;
         int i8 = i4;
-        int iE = paint.e();
+        int iE = paint.getColor();
         int i9 = iE >>> 24;
         if (!(i9 < 255)) {
             while (i5 < i6) {
@@ -622,7 +622,7 @@ public class SoftwareGraphicsInterface implements GraphicsEngine {
         float fA = paint.a(str);
         u.a(f2, f3, f2 + fA, f3 + a(str, paint));
         t.a(u);
-        if (paint.j() == Paint.Align.CENTER) {
+        if (paint.getTextAlign() == Paint.Align.CENTER) {
             t.a(-(fA / 2.0f), 0.0f);
         }
         Utility.grow(t, f4);
@@ -824,7 +824,7 @@ public class SoftwareGraphicsInterface implements GraphicsEngine {
 
     @Override // com.corrodinggames.rts.gameFramework.graphics.GraphicsEngine
     public int a(String str, Paint paint) {
-        return (int) paint.k();
+        return (int) paint.getTextSize();
     }
 
     @Override // com.corrodinggames.rts.gameFramework.graphics.GraphicsEngine

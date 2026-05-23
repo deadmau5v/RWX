@@ -333,7 +333,7 @@ public class OpenGLRenderer implements IGraphicsEngine {
         e();
         if (rectF != null) {
             GLES20.glEnable(3089);
-            GLES20.glScissor((int) rectF.a, (int) (this.N - rectF.d), (int) rectF.b(), (int) rectF.c());
+            GLES20.glScissor((int) rectF.a, (int) (this.N - rectF.d), (int) rectF.width(), (int) rectF.height());
         } else {
             GLES20.glDisable(3089);
         }
@@ -591,7 +591,7 @@ public class OpenGLRenderer implements IGraphicsEngine {
     }
 
     public void a(Texture texture, RectF rectF, RectF rectF2, ITextureFilter iTextureFilter, MatrixCalculator matrixCalculator) {
-        if (rectF2.b() <= 0.0f || rectF2.c() <= 0.0f) {
+        if (rectF2.width() <= 0.0f || rectF2.height() <= 0.0f) {
             return;
         }
         a(texture.g(), iTextureFilter);
@@ -975,11 +975,11 @@ public class OpenGLRenderer implements IGraphicsEngine {
     public void a(String str, float f, float f2, Paint paint) {
         f();
         boolean zA = false;
-        Typeface typefaceI = paint.i();
+        Typeface typefaceI = paint.getTypeface();
         if (typefaceI != null) {
             zA = typefaceI.a();
         }
-        int iK = (int) paint.k();
+        int iK = (int) paint.getTextSize();
         if (iK > 42) {
             iK = 42;
         }
@@ -1010,18 +1010,18 @@ public class OpenGLRenderer implements IGraphicsEngine {
         }
         FontRenderer fontRenderer = shaderContextA.c;
         r();
-        int iE = paint.e();
+        int iE = paint.getColor();
         float fA = Color.a(iE) * 0.003921569f;
         float fB = Color.b(iE) * 0.003921569f * fA;
         float fC = Color.c(iE) * 0.003921569f * fA;
         float fD = Color.d(iE) * 0.003921569f * fA;
-        float fK = paint.k();
+        float fK = paint.getTextSize();
         if (fK != shaderContextA.a) {
         }
         fontRenderer.a(fB, fC, fD, fA, this.d);
         fontRenderer.a(fK / shaderContextA.a);
         r();
-        if (paint.j() == Paint.Align.CENTER) {
+        if (paint.getTextAlign() == Paint.Align.CENTER) {
             fontRenderer.a(str, f - ((int) (fontRenderer.a(str) * 0.5f)), this.c - f2);
         } else {
             fontRenderer.a(str, f, this.c - f2, 0.0f);

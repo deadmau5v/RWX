@@ -415,12 +415,12 @@ public final class Effect {
                 fFromHexString = fFromHexString * (1.0f / gameEngine.zoom) * gameEngine.screenScale;
             }
         }
-        rectF.a(pointFCreatePointWithOffset.x, pointFCreatePointWithOffset.y, pointFCreatePointWithOffset.x + rect.b(), pointFCreatePointWithOffset.y + rect.c());
+        rectF.a(pointFCreatePointWithOffset.x, pointFCreatePointWithOffset.y, pointFCreatePointWithOffset.x + rect.width(), pointFCreatePointWithOffset.y + rect.height());
         if (this.an) {
-            rectF.a((-rectF.b()) / 2.0f, (-rectF.c()) / 2.0f);
+            rectF.a((-rectF.width()) / 2.0f, (-rectF.height()) / 2.0f);
         }
         if (this.ao != 0.0f) {
-            rectF.a(0.0f, rectF.c() * this.ao * fFromHexString);
+            rectF.a(0.0f, rectF.height() * this.ao * fFromHexString);
         }
         if (this.b != null) {
             if (!z && !this.c) {

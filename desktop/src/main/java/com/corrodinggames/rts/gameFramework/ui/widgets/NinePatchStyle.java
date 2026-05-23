@@ -75,8 +75,8 @@ public class NinePatchStyle extends UIStyle {
     private void a(GraphicsEngine graphicsEngine, Texture texture, Paint paint, Rect rect) {
         int i2 = rect.a;
         int i3 = rect.b;
-        int iB = rect.b();
-        int iC = rect.c();
+        int iB = rect.width();
+        int iC = rect.height();
         int i4 = this.a;
         int i5 = this.b;
         if (!this.e) {

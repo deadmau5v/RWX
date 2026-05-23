@@ -202,7 +202,7 @@ public class TextRenderQueue {
         }
         rect.d = rect.b + (fastArrayList.size() * TextUtils.getLineHeight(paint));
         if (z) {
-            float fD = rect.d();
+            float fD = rect.centerX();
             float f2 = 0.0f;
             for (TextRenderLine textRenderLine2 : fastArrayList) {
                 if (textRenderLine2.b > f2) {
@@ -210,7 +210,7 @@ public class TextRenderQueue {
                 }
             }
             float f3 = f2;
-            if (f3 < rect.b()) {
+            if (f3 < rect.width()) {
                 rect.a = (int) (fD - (f3 / 2.0f));
                 rect.c = (int) (fD + (f3 / 2.0f));
             }

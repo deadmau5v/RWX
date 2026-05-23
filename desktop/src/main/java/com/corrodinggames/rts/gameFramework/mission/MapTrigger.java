@@ -216,11 +216,11 @@ public class MapTrigger {
     }
 
     public int b() {
-        return (int) this.t.tileRect.d();
+        return (int) this.t.tileRect.centerX();
     }
 
     public int c() {
-        return (int) this.t.tileRect.e();
+        return (int) this.t.tileRect.centerY();
     }
 
     /* JADX WARN: Multi-variable type inference failed */

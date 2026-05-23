@@ -248,9 +248,9 @@ public class Minimap {
         this.paint8.b(-16711936);
         this.paint9.b(-256);
         this.paint10.b(-65536);
-        this.paint11.b(darkenColor(this.paint8.e()));
-        this.paint12.b(darkenColor(this.paint9.e()));
-        this.paint13.b(darkenColor(this.paint10.e()));
+        this.paint11.b(darkenColor(this.paint8.getColor()));
+        this.paint12.b(darkenColor(this.paint9.getColor()));
+        this.paint13.b(darkenColor(this.paint10.getColor()));
         this.paint14.a(210, 255, 255, 255);
     }
 
@@ -433,7 +433,7 @@ public class Minimap {
             GamePaint gamePaint4 = this.lastPing;
             gamePaint4.c(255);
             if (z) {
-                gamePaint4.c((int) ((1.0f - ((1.0f - (gamePaint2.f() / 255.0f)) * (1.0f - (this.pings[7].f() / 255.0f)))) * 255.0f));
+                gamePaint4.c((int) ((1.0f - ((1.0f - (gamePaint2.getAlpha() / 255.0f)) * (1.0f - (this.pings[7].f() / 255.0f)))) * 255.0f));
             }
             float f3 = this.width / tileMap.tileCountX;
             float f4 = this.height / tileMap.tileCountY;

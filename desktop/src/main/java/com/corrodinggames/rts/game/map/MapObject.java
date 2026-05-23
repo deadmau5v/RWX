@@ -142,10 +142,10 @@ public class MapObject {
         tileMap.convertWorldRectToTileRect(this.tileRect);
         this.x = this.tileRect.a;
         this.y = this.tileRect.b;
-        this.width = this.tileRect.b();
-        this.height = this.tileRect.c();
-        float fD = this.tileRect.d();
-        float fE = this.tileRect.e();
+        this.width = this.tileRect.width();
+        this.height = this.tileRect.height();
+        float fD = this.tileRect.centerX();
+        float fE = this.tileRect.centerY();
         String attribute2 = element.getAttribute("type");
         if (attribute2 != null && !attribute2.equals(VariableScope.nullOrMissingString) && !attribute2.equals("unit") && !attribute2.equals("comment") && !mapObjectLayer.name.equalsIgnoreCase("triggers")) {
             logTriggerMessage("Triggers should be on triggers layer");

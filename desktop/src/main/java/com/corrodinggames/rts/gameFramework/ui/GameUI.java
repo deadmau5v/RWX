@@ -705,7 +705,7 @@ public final class GameUI extends Serializable {
         this.buildingPreviewPaint.a(true);
         gameEngine.updatePaintTextSize(this.buildingPreviewPaint, 12.0f);
         GamePaint.b(this.buildingPreviewPaint);
-        GameEngine.log("smallTextPaint size: " + this.buildingPreviewPaint.k());
+        GameEngine.log("smallTextPaint size: " + this.buildingPreviewPaint.getTextSize());
         this.rallyPointPaint = new GamePaint();
         this.rallyPointPaint.a(this.buildingPreviewPaint);
         gameEngine.updatePaintTextSize(this.rallyPointPaint, 10.0f);
@@ -3971,7 +3971,7 @@ public final class GameUI extends Serializable {
             }
             Paint paint4 = paint3;
             int lineHeight = TextUtils.getLineHeight(paint4);
-            gameEngine.graphicsEngine2.a(str2, rect.d(), rect.b + (lineHeight / 2) + (i * lineHeight), paint4);
+            gameEngine.graphicsEngine2.a(str2, rect.centerX(), rect.b + (lineHeight / 2) + (i * lineHeight), paint4);
             i++;
         }
     }
@@ -4092,8 +4092,8 @@ public final class GameUI extends Serializable {
         if (boolean4) {
             final GamePaint effectIconTexture2 = this.effectIconTexture;
         }
-        final TextRenderLayout a2 = textRenderQueue.a(this.bv.b(), boolean8);
-        final float n2 = (float)this.bv.d();
+        final TextRenderLayout a2 = textRenderQueue.a(this.bv.width(), boolean8);
+        final float n2 = (float)this.bv.centerX();
         this.bv.a = (int)(n2 - a2.b.b() / 2);
         this.bv.c = (int)(n2 + a2.b.b() / 2);
         this.bv.d = this.bv.b + a2.b.c();
@@ -4134,7 +4134,7 @@ public final class GameUI extends Serializable {
             bw4.b -= (int)(40.0f * instance.screenScale);
         }
         if (b) {
-            final int n4 = -this.bv.c();
+            final int n4 = -this.bv.height();
             this.bv.a(0, n4);
             this.bw.a(0, n4);
         }
@@ -4160,9 +4160,9 @@ public final class GameUI extends Serializable {
         if (b3) {}
         if (unitType != null && am != null) {
             final float float7 = 30.0f * instance.screenScale;
-            UnitTypeEnum.drawUnit(unitType, (float)this.bw.d(), this.bw.b + 22.0f * instance.screenScale, this.selectionBoxStartTime, 0.0f, am.team, float7, 100.0f * instance.screenScale, false, false, s.getQueueSize(), null);
+            UnitTypeEnum.drawUnit(unitType, (float)this.bw.centerX(), this.bw.b + 22.0f * instance.screenScale, this.selectionBoxStartTime, 0.0f, am.team, float7, 100.0f * instance.screenScale, false, false, s.getQueueSize(), null);
         }
-        a2.a((float)this.bv.d(), (float)this.bv.b);
+        a2.a((float)this.bv.centerX(), (float)this.bv.b);
         if (am != null && active != -1 && b2) {
             final float float7 = instance.screenScale * 0.5f;
             final int n5 = (int)(60.0f * float7);
@@ -4179,7 +4179,7 @@ public final class GameUI extends Serializable {
                     else {
                         integer1 = Color.a(110, 240, 30, 30);
                     }
-                    Utility.getRandomIntInRange(integer1, this.fogOfWarPaint.e(), clampTo255);
+                    Utility.getRandomIntInRange(integer1, this.fogOfWarPaint.getColor(), clampTo255);
                 }
                 float clampTo255 = this.bw.d - 65.0f * float7 / 2.0f + TextUtils.getCharWidth(this.fogOfWarPaint) / 2;
                 if (timerValue > 0.5) {
@@ -4188,13 +4188,13 @@ public final class GameUI extends Serializable {
                 if (timerValue < -0.5) {
                     --clampTo255;
                 }
-                instance.graphicsEngine2.a("" + active, (float)this.bw.d(), clampTo255, this.fogOfWarPaint);
+                instance.graphicsEngine2.a("" + active, (float)this.bw.centerX(), clampTo255, this.fogOfWarPaint);
             }
             boolean b10 = false;
             boolean b11 = false;
             final boolean b12 = !b3 && this.drawActionPreviewWithFlag(s, true);
             final boolean b13 = active > 0 && s.getDisplayTextWithQueueCount(am, true);
-            int n6 = (int)(this.bw.d() + 60.0f * float7);
+            int n6 = (int)(this.bw.centerX() + 60.0f * float7);
             int i = (int)(this.bw.d - 65.0f * float7);
             this.by.a(n6, i, n6 + n5, i + n5);
             Paint paint4;
@@ -4214,7 +4214,7 @@ public final class GameUI extends Serializable {
                 else {
                     n8 = Color.a(110, 210, 110, 110);
                 }
-                final int n9 = Utility.getRandomIntInRange(n8, paint4.e(), n7);
+                final int n9 = Utility.getRandomIntInRange(n8, paint4.getColor(), n7);
                 paint4 = this.bA;
                 paint4.b(n9);
             }
@@ -4227,7 +4227,7 @@ public final class GameUI extends Serializable {
                 this.isSelectionBoxActive = false;
                 b10 = true;
             }
-            n6 = (int)(this.bw.d() - n5 - 60.0f * float7);
+            n6 = (int)(this.bw.centerX() - n5 - 60.0f * float7);
             i = (int)(this.bw.d - 65.0f * float7);
             this.by.a(n6, i, n6 + n5, i + n5);
             Paint paint5;
@@ -4247,7 +4247,7 @@ public final class GameUI extends Serializable {
                 else {
                     n8 = Color.a(110, 210, 110, 110);
                 }
-                final int n9 = Utility.getRandomIntInRange(n8, paint5.e(), n7);
+                final int n9 = Utility.getRandomIntInRange(n8, paint5.getColor(), n7);
                 paint5 = this.bA;
                 paint5.b(n9);
             }
@@ -4311,7 +4311,7 @@ public final class GameUI extends Serializable {
         if (bO) {
             gameEngine.graphicsEngine2.a(this.bl, rect, paint2, rect.a, rect.b, 0, 0);
             if (paint != null) {
-                int iF = paint.f();
+                int iF = paint.getAlpha();
                 if (iF > 255) {
                     iF = 255;
                 }
@@ -4332,7 +4332,7 @@ public final class GameUI extends Serializable {
         if (this.isUILoggingEnabled) {
             this.bF.b(Color.a(255, 116, 136, 160));
             int i2 = 1;
-            if (z && rect.b() > 100) {
+            if (z && rect.width() > 100) {
                 i2 = 2;
             }
             this.bF.a(i2);
@@ -4371,9 +4371,9 @@ public final class GameUI extends Serializable {
         GameEngine gameEngine = GameEngine.getInstance();
         this.bx.a(i, i2, i + i3, i2 + i4);
         if (GameEngine.isAndroidVersionStatic2) {
-            gameEngine.graphicsEngine2.a(str, this.bx.d(), this.bx.e() + (gameEngine.graphicsEngine2.a(str, paint) / 2), paint);
+            gameEngine.graphicsEngine2.a(str, this.bx.centerX(), this.bx.centerY() + (gameEngine.graphicsEngine2.a(str, paint) / 2), paint);
         } else {
-            gameEngine.graphicsEngine2.a(str, this.bx.d(), this.bx.e() - ((paint.l() + paint.m()) / 2.0f), paint);
+            gameEngine.graphicsEngine2.a(str, this.bx.centerX(), this.bx.centerY() - ((paint.l() + paint.m()) / 2.0f), paint);
         }
     }
 

@@ -390,7 +390,7 @@ public abstract class AbstractUnitAction implements Comparable<AbstractUnitActio
             int iE = 0;
             if (paint2 != null) {
                 baseUnit2 = baseUnit;
-                iE = paint2.e();
+                iE = paint2.getColor();
             }
             displayText.a(textRenderQueue, false, true, 5, true, baseUnit2, iE);
             textRenderQueue.b(")");

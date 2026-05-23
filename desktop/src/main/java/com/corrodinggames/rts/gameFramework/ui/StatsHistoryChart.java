@@ -212,7 +212,7 @@ public class StatsHistoryChart {
         GameEngine gameEngine = GameEngine.getInstance();
         float f2 = 1.5f;
         int screenPixels = rect.b + gameEngine.toScreenPixels(25);
-        int iD = rect.d();
+        int iD = rect.centerX();
         this.c.a("123|", 0, "123|".length(), this.b);
         float fC = this.b.c() + 6;
         for (GameStatistic gameStatistic : this.e) {
@@ -276,7 +276,7 @@ public class StatsHistoryChart {
         Paint var14 = var6.buildingPreviewInvalidPaint;
         String var15 = Locale.get("gui.leaderboard.type." + bj.name());
         var14.a(var15, 0, var15.length(), this.b);
-        y.a(var15, (float)rect.d(), (float)(rect.b + this.b.c()), var14);
+        y.a(var15, (float)rect.centerX(), (float)(rect.b + this.b.c()), var14);
         var12.b = rect.b + this.b.c() + 3;
         var12.d = rect.d - this.b.c() - 3;
         int var37 = Math.max(1, var7.c - var7.b);

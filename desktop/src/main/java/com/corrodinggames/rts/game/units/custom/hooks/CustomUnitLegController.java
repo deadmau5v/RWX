@@ -61,7 +61,7 @@ public class CustomUnitLegController extends CustomUnitRenderHook {
                     }
                     if (fL < 1.0f) {
                         int i3 = (int) (255.0f * fL);
-                        if (paint.f() != i3) {
+                        if (paint.getAlpha() != i3) {
                             d.a(paint);
                             int iF = d.f();
                             if (iF < i3) {

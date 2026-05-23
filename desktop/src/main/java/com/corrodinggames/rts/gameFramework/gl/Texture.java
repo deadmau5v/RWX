@@ -162,10 +162,10 @@ public abstract class Texture implements IRenderCallback {
         float fC = c() / e();
         float fB = b() / d();
         if (rectF.c > fB) {
-            rectF2.c = rectF2.a + ((rectF2.b() * (fB - rectF.a)) / rectF.b());
+            rectF2.c = rectF2.a + ((rectF2.width() * (fB - rectF.a)) / rectF.width());
         }
         if (rectF.d > fC) {
-            rectF2.d = rectF2.b + ((rectF2.c() * (fC - rectF.b)) / rectF.c());
+            rectF2.d = rectF2.b + ((rectF2.height() * (fC - rectF.b)) / rectF.height());
         }
     }
 }

@@ -44,9 +44,9 @@ public class OpenGLGraphicsRenderer implements GraphicsInterface {
         if (paint == null) {
             return null;
         }
-        this.c.a(paint.d());
-        this.c.a(paint.e());
-        this.c.a(paint.g());
+        this.c.a(paint.getStyle());
+        this.c.a(paint.getColor());
+        this.c.a(paint.getStrokeWidth());
         return this.c;
     }
 
@@ -104,7 +104,7 @@ public class OpenGLGraphicsRenderer implements GraphicsInterface {
         if (paint == null) {
             openGLRenderer.w = -1;
         } else {
-            int iE = paint.e();
+            int iE = paint.getColor();
             if (iE != -1 && paint.h() == null) {
                 iE = Color.a(Color.a(iE), 255, 255, 255);
             }
@@ -186,9 +186,9 @@ public class OpenGLGraphicsRenderer implements GraphicsInterface {
             l.a(false);
             l.a(new LightingColorFilter(-1, -16777216));
         }
-        l.b(paint.e());
-        if (paint.d() == Paint.Style.STROKE) {
-            float fG = paint.g();
+        l.b(paint.getColor());
+        if (paint.getStyle() == Paint.Style.STROKE) {
+            float fG = paint.getStrokeWidth();
             if (fG == 0.0f) {
                 fG = 1.0f;
             }

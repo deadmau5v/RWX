@@ -101,12 +101,12 @@ public final class GraphicsUtils {
             (GraphicsUtils.g = new Paint()).a(true);
             GraphicsUtils.g.b(true);
         }
-        final int e = paint.e();
+        final int e = paint.getColor();
         if (GameEngine.isDesktop()) {
             GraphicsUtils.g.a(new LightingColorFilter(e, 0));
         }
         GraphicsUtils.g.b(e);
-        final ShapeCache a = a(float4 * float6, paint.g(), paint.d() == Paint.Style.FILL, y);
+        final ShapeCache a = a(float4 * float6, paint.getStrokeWidth(), paint.getStyle() == Paint.Style.FILL, y);
         final float float7 = float4 / a.b;
         final float n = -float4 - float7 * 2.0f;
         y.a(a.d, float2 + n, float3 + n, GraphicsUtils.g, 0.0f, float7);
@@ -299,8 +299,8 @@ public final class GraphicsUtils {
     }
 
     public static void a(GraphicsEngine graphicsEngine, Texture texture, Rect rect, Rect rect2, Paint paint, int i2, int i3, int i4, int i5, float f2) {
-        int iB = rect.b();
-        int iC = rect.c();
+        int iB = rect.width();
+        int iC = rect.height();
         if (i2 != 0) {
             i2 %= iB;
             if (i2 < 0) {
@@ -391,7 +391,7 @@ public final class GraphicsUtils {
 
     public static void a(Paint paint) {
         if (GameEngine.isDesktop()) {
-            int iE = paint.e();
+            int iE = paint.getColor();
             paint.a(new LightingColorFilter(Utility.longToIntArray(255, (iE >> 16) & 255, (iE >> 8) & 255, iE & 255), 0));
         }
     }

@@ -266,7 +266,7 @@ public final class PathEngine {
                         this.F.a(128, i2, i3, i4);
                         gameEngine.graphicsEngine2.b(rect, this.F);
                         if (zB && pathCostMap.f != null) {
-                            gameEngine.graphicsEngine2.a("o:" + ((int) pathCostMap.f[(i9 * this.t) + i10]), rect.d(), rect.e(), gameEngine.loadingPaint);
+                            gameEngine.graphicsEngine2.a("o:" + ((int) pathCostMap.f[(i9 * this.t) + i10]), rect.centerX(), rect.centerY(), gameEngine.loadingPaint);
                         }
                     }
                 }

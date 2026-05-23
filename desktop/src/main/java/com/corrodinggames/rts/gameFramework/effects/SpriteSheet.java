@@ -51,9 +51,9 @@ public final class SpriteSheet {
         int i4 = this.d + (i2 * this.f);
         int i5 = this.e + (i3 * this.g);
         l.a(i4, i5, i4 + this.b, i5 + this.c);
-        rectF.a(f, f2, f + rect.b(), f2 + rect.c());
+        rectF.a(f, f2, f + rect.width(), f2 + rect.height());
         if (1 != 0) {
-            rectF.a((-rectF.b()) / 2.0f, (-rectF.c()) / 2.0f);
+            rectF.a((-rectF.width()) / 2.0f, (-rectF.height()) / 2.0f);
         }
         gameEngine.graphicsEngine2.a(this.i, rect, rectF, paint);
     }

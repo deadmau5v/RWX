@@ -91,7 +91,7 @@ public class SlickLibRocketManager extends LibRocketManager {
                         }
                     }
                 }
-                rectF.g();
+                rectF.setEmpty();
                 if (compiledGeometry != null) {
                     compiledGeometry.bbox = rectF;
                 }
@@ -142,7 +142,7 @@ public class SlickLibRocketManager extends LibRocketManager {
                         if (playerTeamK == null) {
                             playerTeamK = PlayerTeam.TEAM_ALL;
                         }
-                        UnitTypeEnum.drawUnit(slickUITextureHolder.unitType, rectF2.d(), rectF2.e(), f6, 3.0f, playerTeamK, rectF2.c() * 0.6f, rectF2.c(), false, false, 1, null);
+                        UnitTypeEnum.drawUnit(slickUITextureHolder.unitType, rectF2.centerX(), rectF2.centerY(), f6, 3.0f, playerTeamK, rectF2.height() * 0.6f, rectF2.height(), false, false, 1, null);
                         graphicsEngine.p();
                         f5 = 0.0f;
                         graphicsEngine.j();

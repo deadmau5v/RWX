@@ -51,7 +51,7 @@ public class TextUtils {
             if (i2 >= str.length()) {
                 break;
             }
-            int iA = paint2.a((CharSequence) str, i2, str.length(), true, rect.b() - 5, (float[]) null);
+            int iA = paint2.a((CharSequence) str, i2, str.length(), true, rect.width() - 5, (float[]) null);
             if (iA == 0) {
                 break;
             }
@@ -71,13 +71,13 @@ public class TextUtils {
         }
         rect.d = rect.b + (lines.size() * getLineHeight(paint2));
         if (z) {
-            float fD = rect.d();
+            float fD = rect.centerX();
             Paint paint3 = paint2;
             if (size == 0) {
                 paint3 = paint;
             }
             float fB = GameEngine.getInstance().graphicsEngine2.b(str2, paint3);
-            if (fB < rect.b()) {
+            if (fB < rect.width()) {
                 rect.a = (int) (fD - (fB / 2.0f));
                 rect.c = (int) (fD + (fB / 2.0f));
             }
@@ -91,7 +91,7 @@ public class TextUtils {
         float fB = graphicsEngine.b(str, paint);
         textBounds.a(f, f2, f + fB, f2 + graphicsEngine.a(str, paint));
         backgroundRect.a(textBounds);
-        if (paint.j() == Paint.Align.CENTER) {
+        if (paint.getTextAlign() == Paint.Align.CENTER) {
             backgroundRect.a(-(fB / 2.0f), 0.0f);
         }
         backgroundRect.a -= f3;

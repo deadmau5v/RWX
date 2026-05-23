@@ -1259,7 +1259,7 @@ public abstract class GameEngine {
     /* JADX INFO: renamed from: b */
     public void getTouchY(Paint paint, float f) {
         float screenPixels = toScreenPixels(f);
-        if (paint.k() != screenPixels) {
+        if (paint.getTextSize() != screenPixels) {
             paint.b(screenPixels);
         }
     }

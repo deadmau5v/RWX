@@ -46,7 +46,7 @@ public class LineDrawer extends GraphicsOperation {
             graphicsEngine.a(this.vertices, 0, this.vertexIndex, this.paint);
         } else {
             RectF rectF = this.pointRect;
-            float fG = this.paint.g();
+            float fG = this.paint.getStrokeWidth();
             for (int i = 0; i < this.vertexIndex; i++) {
                 float f = this.vertices[i];
                 float f2 = this.vertices[i + 1];

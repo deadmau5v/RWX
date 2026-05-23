@@ -240,7 +240,7 @@ public class MapLayer {
         gamePaint5.c(255);
         if (z4) {
             gamePaint4 = alphaFillPaints[7];
-            gamePaint5.c((int) ((1.0f - ((1.0f - (gamePaint3.f() / 255.0f)) * (1.0f - (gamePaint4.f() / 255.0f)))) * 255.0f));
+            gamePaint5.c((int) ((1.0f - ((1.0f - (gamePaint3.getAlpha() / 255.0f)) * (1.0f - (gamePaint4.getAlpha() / 255.0f)))) * 255.0f));
         }
         boolean z5 = false;
         if (GameEngine.isPC() && f7 < 1.0f && f8 < 1.0f) {
