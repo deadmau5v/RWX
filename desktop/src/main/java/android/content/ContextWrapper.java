@@ -20,29 +20,24 @@ public class ContextWrapper extends Context {
     }
 
     @Override // android.content.Context
-    public AssetManager d() {
-        return this.a.d();
-    }
+    public AssetManager getAssets() { return this.a.getAssets(); }
+    public AssetManager d() { return getAssets(); }
 
     @Override // android.content.Context
-    public Resources e() {
-        return this.a.e();
-    }
+    public Resources getResources() { return this.a.getResources(); }
+    public Resources e() { return getResources(); }
 
     @Override // android.content.Context
-    public PackageManager f() {
-        return this.a.f();
-    }
+    public PackageManager getPackageManager() { return this.a.getPackageManager(); }
+    public PackageManager f() { return getPackageManager(); }
 
     @Override // android.content.Context
-    public Context g() {
-        return this.a.g();
-    }
+    public Context getApplicationContext() { return this.a.getApplicationContext(); }
+    public Context g() { return getApplicationContext(); }
 
     @Override // android.content.Context
-    public String h() {
-        return this.a.h();
-    }
+    public String getPackageName() { return this.a.getPackageName(); }
+    public String h() { return getPackageName(); }
 
     @Override // android.content.Context
     public SharedPreferences a(String str, int i) {
@@ -65,14 +60,12 @@ public class ContextWrapper extends Context {
     }
 
     @Override // android.content.Context
-    public File i() {
-        return this.a.i();
-    }
+    public File getFilesDir() { return this.a.getFilesDir(); }
+    public File i() { return getFilesDir(); }
 
     @Override // android.content.Context
-    public File j() {
-        return this.a.j();
-    }
+    public File getCacheDir() { return this.a.getCacheDir(); }
+    public File j() { return getCacheDir(); }
 
     @Override // android.content.Context
     public void a(Intent intent) {

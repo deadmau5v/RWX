@@ -37,7 +37,7 @@ public class Handler {
     }
 
     public Handler(Callback callback, boolean z) {
-        this.b = Looper.d();
+        this.b = Looper.myLooper();
         if (this.b == null) {
             throw new RuntimeException("Can't create handler inside thread that has not called Looper.prepare()");
         }

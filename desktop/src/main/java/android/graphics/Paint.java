@@ -205,25 +205,22 @@ public class Paint {
     public void d(boolean z) {
     }
 
-    public Style d() {
-        return this.m;
-    }
+    public Style getStyle() { return this.m; }
+    public Style d() { return getStyle(); }
 
     public void a(Style style) {
         this.m = style;
     }
 
-    public int e() {
-        return this.n;
-    }
+    public int getColor() { return this.n; }
+    public int e() { return getColor(); }
 
     public void b(int i2) {
         this.n = i2;
     }
 
-    public int f() {
-        return Color.a(this.n);
-    }
+    public int getAlpha() { return Color.a(this.n); }
+    public int f() { return getAlpha(); }
 
     public void c(int i2) {
         this.n = Color.a(i2, Color.b(this.n), Color.c(this.n), Color.d(this.n));
@@ -233,9 +230,8 @@ public class Paint {
         b((i2 << 24) | (i3 << 16) | (i4 << 8) | i5);
     }
 
-    public float g() {
-        return this.o;
-    }
+    public float getStrokeWidth() { return this.o; }
+    public float g() { return getStrokeWidth(); }
 
     public void a(float f) {
         this.o = f;
@@ -245,9 +241,8 @@ public class Paint {
         b(this.a, cap.d);
     }
 
-    public ColorFilter h() {
-        return this.r;
-    }
+    public ColorFilter getColorFilter() { return this.r; }
+    public ColorFilter h() { return getColorFilter(); }
 
     public ColorFilter a(ColorFilter colorFilter) {
         c(this.a, 0);
@@ -261,18 +256,16 @@ public class Paint {
         return xfermode;
     }
 
-    public Typeface i() {
-        return this.w;
-    }
+    public Typeface getTypeface() { return this.w; }
+    public Typeface i() { return getTypeface(); }
 
     public Typeface a(Typeface typeface) {
         this.w = typeface;
         return typeface;
     }
 
-    public Align j() {
-        return this.p;
-    }
+    public Align getTextAlign() { return this.p; }
+    public Align j() { return getTextAlign(); }
 
     public void a(Align align) {
         this.p = align;
@@ -289,9 +282,8 @@ public class Paint {
         a(this.a, locale.toString());
     }
 
-    public float k() {
-        return this.q;
-    }
+    public float getTextSize() { return this.q; }
+    public float k() { return getTextSize(); }
 
     public void b(float f) {
         this.q = f;

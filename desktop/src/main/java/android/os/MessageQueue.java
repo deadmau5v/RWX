@@ -81,7 +81,7 @@ public final class MessageQueue {
                     do {
                         message2 = message;
                         message = message.l;
-                    } while (message != null && !message.e());
+                    } while (message != null && !message.isAsynchronous());
                 }
                 if (message != null) {
                     if (jA < message.h) {
@@ -146,7 +146,7 @@ public final class MessageQueue {
         if (message.j == null) {
             throw new IllegalArgumentException("Message must have a target.");
         }
-        if (message.f()) {
+        if (message.isInUse()) {
             throw new IllegalStateException(message + " This message is already in use.");
         }
         synchronized (this) {
@@ -156,7 +156,7 @@ public final class MessageQueue {
                 message.b();
                 return false;
             }
-            message.g();
+            message.markInUse();
             message.h = j;
             Message message3 = this.a;
             if (message3 == null || j == 0 || j < message3.h) {
@@ -171,7 +171,7 @@ public final class MessageQueue {
                     if (message3 == null || j < message3.h) {
                         break;
                     }
-                    if (z2 && message3.e()) {
+                    if (z2 && message3.isAsynchronous()) {
                         z2 = false;
                     }
                 }

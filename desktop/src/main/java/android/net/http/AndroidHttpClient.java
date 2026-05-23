@@ -37,7 +37,7 @@ public final class AndroidHttpClient implements HttpClient {
     private static final HttpRequestInterceptor c = new HttpRequestInterceptor() { // from class: android.net.http.AndroidHttpClient.1
         @Override // org.apache.http.HttpRequestInterceptor
         public void process(HttpRequest httpRequest, HttpContext httpContext) {
-            if (Looper.d() != null && Looper.d() == Looper.b()) {
+            if (Looper.myLooper() != null && Looper.myLooper() == Looper.getMainLooper()) {
                 throw new RuntimeException("This thread forbids HTTP requests");
             }
         }

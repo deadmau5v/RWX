@@ -53,32 +53,23 @@ public class RectF implements Parcelable {
         return "RectF(" + this.a + ", " + this.b + ", " + this.c + ", " + this.d + ")";
     }
 
-    public final boolean a() {
-        return this.a >= this.c || this.b >= this.d;
-    }
+    public final boolean isEmpty() { return this.a >= this.c || this.b >= this.d; }
+    public final boolean a() { return isEmpty(); }
 
-    public final float b() {
-        return this.c - this.a;
-    }
+    public final float width() { return this.c - this.a; }
+    public final float b() { return width(); }
 
-    public final float c() {
-        return this.d - this.b;
-    }
+    public final float height() { return this.d - this.b; }
+    public final float c() { return height(); }
 
-    public final float d() {
-        return (this.a + this.c) * 0.5f;
-    }
+    public final float centerX() { return (this.a + this.c) * 0.5f; }
+    public final float d() { return centerX(); }
 
-    public final float e() {
-        return (this.b + this.d) * 0.5f;
-    }
+    public final float centerY() { return (this.b + this.d) * 0.5f; }
+    public final float e() { return centerY(); }
 
-    public void f() {
-        this.d = 0.0f;
-        this.b = 0.0f;
-        this.c = 0.0f;
-        this.a = 0.0f;
-    }
+    public void setEmpty() { this.d = 0.0f; this.b = 0.0f; this.c = 0.0f; this.a = 0.0f; }
+    public void f() { setEmpty(); }
 
     public void a(float f, float f2, float f3, float f4) {
         this.a = f;

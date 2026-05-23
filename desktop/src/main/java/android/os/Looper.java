@@ -27,6 +27,13 @@ public final class Looper {
         }
     }
 
+    public static Looper getMainLooper() {
+        Looper looper;
+        synchronized (Looper.class) {
+            looper = d;
+        }
+        return looper;
+    }
     public static Looper b() {
         Looper looper;
         synchronized (Looper.class) {
@@ -58,17 +65,15 @@ public final class Looper {
         }
     }
 
-    public static Looper d() {
-        return (Looper) a.get();
-    }
+    public static Looper myLooper() { return (Looper) a.get(); }
+    public static Looper d() { return myLooper(); }
 
     private Looper(boolean z) {
         this.b = new MessageQueue(z);
     }
 
-    public Thread e() {
-        return this.c;
-    }
+    public Thread getThread() { return this.c; }
+    public Thread e() { return getThread(); }
 
     public String toString() {
         return "Looper (" + this.c.getName() + ", tid " + this.c.getId() + ") {" + Integer.toHexString(System.identityHashCode(this)) + "}";

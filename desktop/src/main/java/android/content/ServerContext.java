@@ -12,29 +12,24 @@ public class ServerContext extends Context {
     AssetManager a = new AssetManager();
 
     @Override // android.content.Context
-    public AssetManager d() {
-        return this.a;
-    }
+    public AssetManager getAssets() { return this.a; }
+    public AssetManager d() { return getAssets(); }
 
     @Override // android.content.Context
-    public Resources e() {
-        return null;
-    }
+    public Resources getResources() { return null; }
+    public Resources e() { return getResources(); }
 
     @Override // android.content.Context
-    public PackageManager f() {
-        return null;
-    }
+    public PackageManager getPackageManager() { return null; }
+    public PackageManager f() { return getPackageManager(); }
 
     @Override // android.content.Context
-    public Context g() {
-        return this;
-    }
+    public Context getApplicationContext() { return this; }
+    public Context g() { return getApplicationContext(); }
 
     @Override // android.content.Context
-    public String h() {
-        return null;
-    }
+    public String getPackageName() { return null; }
+    public String h() { return getPackageName(); }
 
     @Override // android.content.Context
     public SharedPreferences a(String str, int i) {
@@ -57,14 +52,12 @@ public class ServerContext extends Context {
     }
 
     @Override // android.content.Context
-    public File i() {
-        return null;
-    }
+    public File getFilesDir() { return null; }
+    public File i() { return getFilesDir(); }
 
     @Override // android.content.Context
-    public File j() {
-        return null;
-    }
+    public File getCacheDir() { return null; }
+    public File j() { return getCacheDir(); }
 
     @Override // android.content.Context
     public void a(Intent intent) {

@@ -9,15 +9,20 @@ import java.io.FileOutputStream;
 
 /* JADX INFO: loaded from: game-lib.jar:android/content/Context.class */
 public abstract class Context {
-    public abstract AssetManager d();
+    public abstract AssetManager getAssets();
+    public AssetManager d() { return getAssets(); }
 
-    public abstract Resources e();
+    public abstract Resources getResources();
+    public Resources e() { return getResources(); }
 
-    public abstract PackageManager f();
+    public abstract PackageManager getPackageManager();
+    public PackageManager f() { return getPackageManager(); }
 
-    public abstract Context g();
+    public abstract Context getApplicationContext();
+    public Context g() { return getApplicationContext(); }
 
-    public abstract String h();
+    public abstract String getPackageName();
+    public String h() { return getPackageName(); }
 
     public abstract SharedPreferences a(String str, int i);
 
@@ -27,9 +32,11 @@ public abstract class Context {
 
     public abstract File b(String str);
 
-    public abstract File i();
+    public abstract File getFilesDir();
+    public File i() { return getFilesDir(); }
 
-    public abstract File j();
+    public abstract File getCacheDir();
+    public File j() { return getCacheDir(); }
 
     public abstract void a(Intent intent);
 

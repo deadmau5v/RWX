@@ -94,9 +94,8 @@ public final class Message implements Parcelable {
         return this.i;
     }
 
-    public boolean e() {
-        return (this.g & 2) != 0;
-    }
+    public boolean isAsynchronous() { return (this.g & 2) != 0; }
+    public boolean e() { return isAsynchronous(); }
 
     public void a(boolean z) {
         if (z) {
@@ -106,13 +105,11 @@ public final class Message implements Parcelable {
         }
     }
 
-    boolean f() {
-        return (this.g & 1) == 1;
-    }
+    boolean isInUse() { return (this.g & 1) == 1; }
+    boolean f() { return isInUse(); }
 
-    void g() {
-        this.g |= 1;
-    }
+    void markInUse() { this.g |= 1; }
+    void g() { markInUse(); }
 
     public String toString() {
         return a(SystemClock.a());

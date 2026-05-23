@@ -33,40 +33,29 @@ public final class Rect {
         return "Rect(" + this.a + ", " + this.b + ", " + this.c + ", " + this.d + ")";
     }
 
-    public final boolean a() {
-        return this.a >= this.c || this.b >= this.d;
-    }
+    public final boolean isEmpty() { return this.a >= this.c || this.b >= this.d; }
+    public final boolean a() { return isEmpty(); }
 
-    public final int b() {
-        return this.c - this.a;
-    }
+    public final int width() { return this.c - this.a; }
+    public final int b() { return width(); }
 
-    public final int c() {
-        return this.d - this.b;
-    }
+    public final int height() { return this.d - this.b; }
+    public final int c() { return height(); }
 
-    public final int d() {
-        return (this.a + this.c) >> 1;
-    }
+    public final int centerX() { return (this.a + this.c) >> 1; }
+    public final int d() { return centerX(); }
 
-    public final int e() {
-        return (this.b + this.d) >> 1;
-    }
+    public final int centerY() { return (this.b + this.d) >> 1; }
+    public final int e() { return centerY(); }
 
-    public final float f() {
-        return (this.a + this.c) * 0.5f;
-    }
+    public final float exactCenterX() { return (this.a + this.c) * 0.5f; }
+    public final float f() { return exactCenterX(); }
 
-    public final float g() {
-        return (this.b + this.d) * 0.5f;
-    }
+    public final float exactCenterY() { return (this.b + this.d) * 0.5f; }
+    public final float g() { return exactCenterY(); }
 
-    public void h() {
-        this.d = 0;
-        this.b = 0;
-        this.c = 0;
-        this.a = 0;
-    }
+    public void setEmpty() { this.d = 0; this.b = 0; this.c = 0; this.a = 0; }
+    public void h() { setEmpty(); }
 
     public void a(int i, int i2, int i3, int i4) {
         this.a = i;
