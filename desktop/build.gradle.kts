@@ -46,7 +46,6 @@ val osType = when (platformType) {
 dependencies {
     implementation(project(":mod-api"))
     implementation(project(":core"))
-    compileOnly(files("../libs/android.jar"))
     runtimeOnly(files("../libs/android.jar"))
     implementation(files("../libs/slick.jar"))
     implementation(files("../libs/jogg-0.0.7.jar"))
@@ -465,3 +464,4 @@ tasks.register("writeP2PRendezvousArgfile") {
         println(file.absolutePath)
     }
 }
+dependencies { implementation(project(":android-stubs")) }

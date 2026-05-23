@@ -4,6 +4,12 @@ import java.io.File
 import java.nio.charset.Charset
 
 class DesktopPlatformBridge : PlatformBridge {
+    init {
+        com.corrodinggames.rts.gameFramework.p2p.P2PLobbyService.setInstance(
+            com.corrodinggames.rts.gameFramework.p2p.DesktopP2PLobbyService.getInstance()
+        )
+    }
+
     override val storage: PlatformStorage = DesktopPlatformStorage()
 
     override fun isMobilePlatform(): Boolean = false

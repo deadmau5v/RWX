@@ -408,7 +408,7 @@ public final class SlickGraphicsEngine implements GraphicsEngine {
                         d.g = android.graphics.Color.c(i2) * 0.003921569f;
                         d.b = android.graphics.Color.d(i2) * 0.003921569f;
                         d.a = android.graphics.Color.a(i2) * 0.003921569f;
-                        a(paint.getColor(), e);
+                        a(paint.e(), e);
                         d.r *= e.r;
                         d.g *= e.g;
                         d.b *= e.b;
@@ -424,14 +424,14 @@ public final class SlickGraphicsEngine implements GraphicsEngine {
                 } else if (colorFilterH instanceof TeamColorFilter) {
                     TeamColorFilter teamColorFilter = (TeamColorFilter) colorFilterH;
                     if (teamColorFilter.a == BlendMode.copy) {
-                        f(paint.getColor());
+                        f(paint.e());
                         this.lastDrawMode = 99;
                         W.glEnable(3042);
                         W.glColorMask(true, true, true, true);
                         W.glBlendFunc(1, 1);
                         z4 = false;
                     } else if (teamColorFilter.a == BlendMode.additive) {
-                        f(paint.getColor());
+                        f(paint.e());
                         this.lastDrawMode = 99;
                         W.glEnable(3042);
                         W.glColorMask(true, true, true, true);
@@ -441,11 +441,11 @@ public final class SlickGraphicsEngine implements GraphicsEngine {
                 }
             }
             if (z4) {
-                f(paint.getColor());
+                f(paint.e());
             }
             if (z3) {
-                if (paint.getStrokeWidth() != 0.0f) {
-                    a(paint.getStrokeWidth());
+                if (paint.g() != 0.0f) {
+                    a(paint.g());
                 } else {
                     a(1.0f);
                 }
@@ -599,11 +599,11 @@ public final class SlickGraphicsEngine implements GraphicsEngine {
 
     public Font a(Paint paint, String str, boolean z) {
         FontKey fontKey = this.C;
-        fontKey.a = (int) paint.getTextSize();
+        fontKey.a = (int) paint.k();
         if (x()) {
             fontKey.a = (int) (fontKey.a * this.uiScale);
         }
-        Typeface typefaceI = paint.getTypeface();
+        Typeface typefaceI = paint.i();
         fontKey.b = false;
         if (typefaceI != null) {
             fontKey.b = typefaceI.a();
@@ -1064,7 +1064,7 @@ public final class SlickGraphicsEngine implements GraphicsEngine {
         J.a(f, f2, f + fB, f2 + a(str, paint));
         Utility.grow(J, f3);
         K.a(J);
-        if (paint.getTextAlign() == Paint.Align.CENTER) {
+        if (paint.j() == Paint.Align.CENTER) {
             J.a(-(fB / 2.0f), 0.0f);
         }
         a(J, paint2);
@@ -1096,9 +1096,9 @@ public final class SlickGraphicsEngine implements GraphicsEngine {
         float f7 = f5 + this.currentTransform.b;
         a(paint, str);
         int width = 0;
-        if (paint.getTextAlign() == Paint.Align.CENTER) {
+        if (paint.j() == Paint.Align.CENTER) {
             width = 0 - (this.slickGraphics.getFont().getWidth(str) / 2);
-        } else if (paint.getTextAlign() == Paint.Align.RIGHT) {
+        } else if (paint.j() == Paint.Align.RIGHT) {
             width = 0 - this.slickGraphics.getFont().getWidth(str);
         }
         this.slickGraphics.drawString(str, (int) (f6 + width), (int) (f7 + (0 - this.slickGraphics.getFont().getLineHeight())));
@@ -1116,7 +1116,7 @@ public final class SlickGraphicsEngine implements GraphicsEngine {
     @Override // com.corrodinggames.rts.gameFramework.graphics.GraphicsEngine
     public void a(RectF rectF, Paint paint) {
         b(paint);
-        if (paint.getStyle() == Paint.Style.FILL || paint.getStyle() == Paint.Style.FILL_AND_STROKE) {
+        if (paint.d() == Paint.Style.FILL || paint.d() == Paint.Style.FILL_AND_STROKE) {
             TextureImpl.bindNone();
             W.glBegin(7);
             float f = rectF.a;
@@ -1140,8 +1140,8 @@ public final class SlickGraphicsEngine implements GraphicsEngine {
         }
         float f13 = rectF.a;
         float f14 = rectF.b;
-        float fB = rectF.width();
-        float fC = rectF.height();
+        float fB = rectF.b();
+        float fC = rectF.c();
         float f15 = f13 * this.currentTransform.d;
         float f16 = f14 * this.currentTransform.e;
         this.slickGraphics.drawRect(f15 + this.currentTransform.a, f16 + this.currentTransform.b, fB * this.currentTransform.d, fC * this.currentTransform.e);
@@ -1217,7 +1217,7 @@ public final class SlickGraphicsEngine implements GraphicsEngine {
         y();
         if (rectF != null) {
             W.glEnable(3089);
-            W.glScissor((int) rectF.a, (int) ((n() * this.uiScale) - rectF.d), (int) rectF.width(), (int) rectF.height());
+            W.glScissor((int) rectF.a, (int) ((n() * this.uiScale) - rectF.d), (int) rectF.b(), (int) rectF.c());
         } else {
             W.glDisable(3089);
         }
@@ -1232,7 +1232,7 @@ public final class SlickGraphicsEngine implements GraphicsEngine {
         float f7 = f5 + this.currentTransform.b;
         float f8 = f3 * this.currentTransform.d;
         b(paint);
-        if (paint.getStyle() == Paint.Style.STROKE) {
+        if (paint.d() == Paint.Style.STROKE) {
             int i = 40;
             if (f8 > 100.0f) {
                 i = 60;
@@ -1246,7 +1246,7 @@ public final class SlickGraphicsEngine implements GraphicsEngine {
     @Override // com.corrodinggames.rts.gameFramework.graphics.GraphicsEngine
     public void a(float f, float f2, float f3, Paint paint) {
         float f4 = this.currentTransform.d;
-        if (f3 * f4 < 25.0f && paint.getStyle() == Paint.Style.STROKE) {
+        if (f3 * f4 < 25.0f && paint.d() == Paint.Style.STROKE) {
             GraphicsUtils.a(this, f, f2, f3, paint, f4);
         } else {
             b(f, f2, f3, paint);
@@ -1284,7 +1284,7 @@ public final class SlickGraphicsEngine implements GraphicsEngine {
         if (Main.b) {
             z = false;
         }
-        float fG = paint.getStrokeWidth();
+        float fG = paint.g();
         float f = 1.0f;
         float f2 = 0.0f;
         if (fG > 1.0f) {

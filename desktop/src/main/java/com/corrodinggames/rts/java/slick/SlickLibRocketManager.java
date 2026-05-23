@@ -91,7 +91,7 @@ public class SlickLibRocketManager extends LibRocketManager {
                         }
                     }
                 }
-                rectF.setEmpty();
+                rectF.g();
                 if (compiledGeometry != null) {
                     compiledGeometry.bbox = rectF;
                 }
@@ -142,7 +142,7 @@ public class SlickLibRocketManager extends LibRocketManager {
                         if (playerTeamK == null) {
                             playerTeamK = PlayerTeam.TEAM_ALL;
                         }
-                        UnitTypeEnum.drawUnit(slickUITextureHolder.unitType, rectF2.centerX(), rectF2.centerY(), f6, 3.0f, playerTeamK, rectF2.height() * 0.6f, rectF2.height(), false, false, 1, null);
+                        UnitTypeEnum.drawUnit(slickUITextureHolder.unitType, rectF2.d(), rectF2.e(), f6, 3.0f, playerTeamK, rectF2.c() * 0.6f, rectF2.c(), false, false, 1, null);
                         graphicsEngine.p();
                         f5 = 0.0f;
                         graphicsEngine.j();
@@ -200,7 +200,7 @@ public class SlickLibRocketManager extends LibRocketManager {
     @Override // com.corrodinggames.librocket.LibRocketManager, com.LibRocket
     public void EnableScissorRegion(boolean z) {
         if (z) {
-            this.j.setWorldClip(this.scissorRect.a, this.scissorRect.b, this.scissorRect.width(), this.scissorRect.height());
+            this.j.setWorldClip(this.scissorRect.a, this.scissorRect.b, this.scissorRect.b(), this.scissorRect.c());
             this.h = true;
         } else {
             this.j.clearWorldClip();

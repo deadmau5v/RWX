@@ -1,0 +1,1 @@
+package android.os; public class Parcel { public int readInt() { return 0; } public float readFloat() { return 0f; } public long readLong() { return 0L; } public void writeInt(int v) {} public void writeFloat(float v) {} public void writeLong(long v) {} }
