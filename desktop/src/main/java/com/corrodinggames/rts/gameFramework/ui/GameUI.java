@@ -1584,7 +1584,7 @@ public final class GameUI extends Serializable {
         if (this.isSelectionBoxActive && !this.isInputDisabled && this.by.b((int) this.selectionBoxStartX, (int) this.selectionBoxStartY)) {
             z2 = true;
         }
-        a(this.by.a, this.by.b, this.by.b(), this.by.c());
+        a(this.by.a, this.by.b, this.by.width(), this.by.height());
         return z2;
     }
 
@@ -2331,7 +2331,7 @@ public final class GameUI extends Serializable {
                         final float posX = y.posX;
                         final float posY = y.posY;
                         int n6 = 0;
-                        if (Utility.abs(posX - this.cameraShakeX) < y.cd().b() * instance.tileMap.tileWorldSizeX * 2.0f + 3 * instance.tileMap.tileWorldSizeX && Utility.abs(posY - this.cameraShakeY) < y.cd().c() * instance.tileMap.tileWorldSizeY * 2.0f + 3 * instance.tileMap.tileWorldSizeY) {
+                        if (Utility.abs(posX - this.cameraShakeX) < y.cd().width() * instance.tileMap.tileWorldSizeX * 2.0f + 3 * instance.tileMap.tileWorldSizeX && Utility.abs(posY - this.cameraShakeY) < y.cd().height() * instance.tileMap.tileWorldSizeY * 2.0f + 3 * instance.tileMap.tileWorldSizeY) {
                             this.cameraShakeIntensity = posX - this.cameraShakeX;
                             this.cameraShakeDecay = posY - this.cameraShakeY;
                             if (Utility.abs(this.cameraShakeIntensity) > Utility.abs(this.cameraShakeDecay)) {
@@ -2341,7 +2341,7 @@ public final class GameUI extends Serializable {
                                 this.cameraShakeIntensity = 0.0f;
                             }
                         }
-                        if (y.cd().c() > y.cd().b() + 1) {
+                        if (y.cd().height() > y.cd().width() + 1) {
                             this.cameraShakeDecay = 0.0f;
                         }
                         this.cameraShakeX = posX;
@@ -4222,7 +4222,7 @@ public final class GameUI extends Serializable {
                 this.by.a(0, 1);
             }
             instance.graphicsEngine2.a(this.bh, (float)this.by.a, (float)this.by.b, paint4, 0.0f, float7);
-            Utility.grow(this.by, this.by.b() * 0.8f);
+            Utility.grow(this.by, this.by.width() * 0.8f);
             if (this.isSelectionBoxActive && !this.isInputDisabled && !b4 && this.by.b((int)this.selectionBoxStartX, (int)this.selectionBoxStartY)) {
                 this.isSelectionBoxActive = false;
                 b10 = true;
@@ -4255,7 +4255,7 @@ public final class GameUI extends Serializable {
                 this.by.a(0, 1);
             }
             instance.graphicsEngine2.a(this.bi, (float)this.by.a, (float)this.by.b, paint5, 0.0f, float7);
-            Utility.grow(this.by, this.by.b() * 0.8f);
+            Utility.grow(this.by, this.by.width() * 0.8f);
             if (this.isSelectionBoxActive && !this.isInputDisabled && this.by.b((int)this.selectionBoxStartX, (int)this.selectionBoxStartY)) {
                 this.isSelectionBoxActive = false;
                 b11 = true;

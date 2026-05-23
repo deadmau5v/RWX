@@ -1523,7 +1523,7 @@ public class GameInterfaceRenderer extends Serializable {
                             this.paintUnitTeam.a(80, 0, 0, 100);
                             this.minimapRect.a(this.zoomButtonRect);
                             final Rect minimapRect = this.minimapRect;
-                            minimapRect.c -= (int)((1.0f - n25) * this.minimapRect.b());
+                            minimapRect.c -= (int)((1.0f - n25) * this.minimapRect.width());
                             this.gameEngine.graphicsEngine2.b(this.minimapRect, this.paintUnitTeam);
                             this.paintUnitStatus.a(190, 148, 189, 255);
                             this.gameEngine.graphicsEngine2.a((float)this.minimapRect.c, (float)this.minimapRect.b, (float)this.minimapRect.c, (float)this.minimapRect.d, this.paintUnitTeam);
@@ -1534,7 +1534,7 @@ public class GameInterfaceRenderer extends Serializable {
                                 this.paintUnitTeam.a(80, 100, 0, 0);
                                 this.minimapRect.a(this.zoomButtonRect);
                                 final Rect minimapRect2 = this.minimapRect;
-                                minimapRect2.c -= (int)((1.0f - e) * this.minimapRect.b());
+                                minimapRect2.c -= (int)((1.0f - e) * this.minimapRect.width());
                                 this.gameEngine.graphicsEngine2.b(this.minimapRect, this.paintUnitTeam);
                                 this.paintUnitStatus.a(190, 148, 189, 255);
                                 this.gameEngine.graphicsEngine2.a((float)this.minimapRect.c, (float)this.minimapRect.b, (float)this.minimapRect.c, (float)this.minimapRect.d, this.paintUnitTeam);
@@ -1616,7 +1616,7 @@ public class GameInterfaceRenderer extends Serializable {
                                 final Paint a5 = GameViewUtils.a(n30, Paint.Style.FILL);
                                 final Paint a6 = GameViewUtils.a(j, Paint.Style.STROKE);
                                 final int n31 = 3;
-                                final int n32 = (int)(this.selectionRectF.b() / 3.0f) - 3;
+                                final int n32 = (int)(this.selectionRectF.width() / 3.0f) - 3;
                                 final int n33 = 0;
                                 final int n34 = n32 * 2;
                                 this.minimapRectF.a(float3 - n32, float2 + n33, float3 - n32 + n34 * bv, float2 + n33 + n31);
@@ -1631,7 +1631,7 @@ public class GameInterfaceRenderer extends Serializable {
                                 final Paint a7 = GameViewUtils.a(n30, Paint.Style.FILL);
                                 final Paint a8 = GameViewUtils.a(j, Paint.Style.STROKE);
                                 final int n31 = 3;
-                                final int n32 = (int)(this.selectionRectF.b() / 3.0f) - 3;
+                                final int n32 = (int)(this.selectionRectF.width() / 3.0f) - 3;
                                 final int n33 = 0;
                                 final int n34 = n32 * 2;
                                 this.minimapRectF.a(float3 - n32, float2 + n33, float3 - n32 + n34 * n28, float2 + n33 + n31);
@@ -1737,7 +1737,7 @@ public class GameInterfaceRenderer extends Serializable {
                 if (GameEngine.isAndroid()) {
                     Utility.grow2(this.unitRect, 2.0f);
                 }
-                this.gameUI.a((float)this.unitRect.a, (float)this.unitRect.b, (float)this.unitRect.b(), (float)this.unitRect.c());
+                this.gameUI.a((float)this.unitRect.a, (float)this.unitRect.b, (float)this.unitRect.width(), (float)this.unitRect.height());
                 if (!this.isDraggingSelectionBox && this.unitRect.b((int)this.gameUI.selectionBoxMinWidth, (int)this.gameUI.selectionBoxMinHeight) && this.rectF.b((float)(int)this.gameUI.selectionBoxMinWidth, (float)(int)this.gameUI.selectionBoxMinHeight)) {
                     b = true;
                     if (GameEngine.isPC()) {

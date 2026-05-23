@@ -280,7 +280,7 @@ public class StatsHistoryChart {
         var12.b = rect.b + this.b.c() + 3;
         var12.d = rect.d - this.b.c() - 3;
         int var37 = Math.max(1, var7.c - var7.b);
-        float var38 = (float)var12.c() / var37;
+        float var38 = (float)var12.height() / var37;
         String var16 = Utility.copyStream(0L);
         int var13 = y.b(var16, var10);
         y.a(var16, (float)(rect.a + var13 / 2), (float)rect.d, var10);
@@ -313,7 +313,7 @@ public class StatsHistoryChart {
         String var39 = Utility.copyStream((long)(var7.d / 1000));
         var13 = y.b(var39, var10);
         y.a(var39, (float)var12.c, (float)rect.d, var10);
-        float var40 = (float)var12.b() / var7.d;
+        float var40 = (float)var12.width() / var7.d;
         if (z == ValueDisplayMode.absolute) {
             label170:
             for (int var41 = 0; var41 <= 2; var41++) {
@@ -388,7 +388,7 @@ public class StatsHistoryChart {
 
                 for (int var70 = 0; var70 < this.l.size(); var70++) {
                     float var73 = var45.a(var70);
-                    float var76 = var66 - var12.c() * var73;
+                    float var76 = var66 - var12.height() * var73;
                     if (var73 > 0.0F) {
                         TeamHistoryChart var79 = this.l.get(var70);
                         float var82 = Math.min(1.0F, Math.max(0.0F, var8 - (float)var45.a(0) / var7.d));
@@ -409,7 +409,7 @@ public class StatsHistoryChart {
         }
 
         if (var12.b((int)var6.selectionBoxStartX, (int)var6.selectionBoxStartY)) {
-            var6.a(var12.a, var12.b, var12.b(), var12.c());
+            var6.a(var12.a, var12.b, var12.width(), var12.height());
             var11.b(-1);
             y.a(var6.selectionBoxStartX, var12.b, var6.selectionBoxStartX, var12.d, var11);
             int var43 = (int)var6.selectionBoxStartX;

@@ -200,7 +200,7 @@ public class SlickLibRocketManager extends LibRocketManager {
     @Override // com.corrodinggames.librocket.LibRocketManager, com.LibRocket
     public void EnableScissorRegion(boolean z) {
         if (z) {
-            this.j.setWorldClip(this.scissorRect.a, this.scissorRect.b, this.scissorRect.b(), this.scissorRect.c());
+            this.j.setWorldClip(this.scissorRect.a, this.scissorRect.b, this.scissorRect.width(), this.scissorRect.height());
             this.h = true;
         } else {
             this.j.clearWorldClip();

@@ -1632,7 +1632,7 @@ public abstract class OrderableUnit extends UnitBase {
                 this.pathTargetRadius = 0;
                 if (unitCommand.targetUnit.bI()) {
                     Rect rectCc = unitCommand.targetUnit.cc();
-                    this.pathTargetRadius = Utility.min(rectCc.c() / 2, rectCc.b() / 2) + 1;
+                    this.pathTargetRadius = Utility.min(rectCc.height() / 2, rectCc.width() / 2) + 1;
                 }
                 if (this.s > 90.0f) {
                     this.s = 90.0f;
