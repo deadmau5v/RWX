@@ -16,11 +16,29 @@ import android.os.Bundle;
  */
 public class BaseActivity extends Activity {
 
+    private boolean resumed = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AppFrameworkUtils.setup(this);
         onCreate();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        resumed = true;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        resumed = false;
+    }
+
+    public boolean isResumed() {
+        return resumed;
     }
 
     /**
