@@ -77,7 +77,7 @@ public final class StoredResources {
 
     public void a(Resource resource, double d) {
         if (this.c) {
-            throw new RuntimeException("StoredResources are locked");
+            com.corrodinggames.rts.gameFramework.GameEngine.updatePaintTextSizeIfNeeded("Warning: StoredResources modification attempted on locked instance"); return;
         }
         int i = this.b.size;
         Object[] objArrA = this.b.a();
@@ -95,7 +95,7 @@ public final class StoredResources {
 
     public void a(double d) {
         if (this.c) {
-            throw new RuntimeException("StoredResources are locked");
+            com.corrodinggames.rts.gameFramework.GameEngine.updatePaintTextSizeIfNeeded("Warning: StoredResources modification attempted on locked instance"); return;
         }
         int i = this.b.size;
         Object[] objArrA = this.b.a();
@@ -106,7 +106,7 @@ public final class StoredResources {
 
     public void b(Resource resource, double d) {
         if (this.c) {
-            throw new RuntimeException("StoredResources are locked");
+            com.corrodinggames.rts.gameFramework.GameEngine.updatePaintTextSizeIfNeeded("Warning: StoredResources modification attempted on locked instance"); return;
         }
         if (d == 0.0d) {
             return;
@@ -128,7 +128,7 @@ public final class StoredResources {
 
     public void c(Resource resource, double d) {
         if (this.c) {
-            throw new RuntimeException("StoredResources are locked");
+            com.corrodinggames.rts.gameFramework.GameEngine.updatePaintTextSizeIfNeeded("Warning: StoredResources modification attempted on locked instance"); return;
         }
         if (d == 0.0d) {
             return;
@@ -150,7 +150,7 @@ public final class StoredResources {
 
     public void d(Resource resource, double d) {
         if (this.c) {
-            throw new RuntimeException("StoredResources are locked");
+            com.corrodinggames.rts.gameFramework.GameEngine.updatePaintTextSizeIfNeeded("Warning: StoredResources modification attempted on locked instance"); return;
         }
         b(resource, -d);
     }
@@ -176,7 +176,7 @@ public final class StoredResources {
 
     public void b(StoredResources storedResources) {
         if (this.c) {
-            throw new RuntimeException("StoredResources are locked");
+            com.corrodinggames.rts.gameFramework.GameEngine.updatePaintTextSizeIfNeeded("Warning: StoredResources modification attempted on locked instance"); return;
         }
         int i = storedResources.b.size;
         Object[] objArrA = storedResources.b.a();
@@ -188,7 +188,7 @@ public final class StoredResources {
 
     public void a(StoredResources storedResources, double d, double d2) {
         if (this.c) {
-            throw new RuntimeException("StoredResources are locked");
+            com.corrodinggames.rts.gameFramework.GameEngine.updatePaintTextSizeIfNeeded("Warning: StoredResources modification attempted on locked instance"); return;
         }
         int i = storedResources.b.size;
         Object[] objArrA = storedResources.b.a();
@@ -202,7 +202,7 @@ public final class StoredResources {
 
     public void a(StoredResources storedResources, double d) {
         if (this.c) {
-            throw new RuntimeException("StoredResources are locked");
+            com.corrodinggames.rts.gameFramework.GameEngine.updatePaintTextSizeIfNeeded("Warning: StoredResources modification attempted on locked instance"); return;
         }
         int i = storedResources.b.size;
         Object[] objArrA = storedResources.b.a();
@@ -214,7 +214,7 @@ public final class StoredResources {
 
     public void c(StoredResources storedResources) {
         if (this.c) {
-            throw new RuntimeException("StoredResources are locked");
+            com.corrodinggames.rts.gameFramework.GameEngine.updatePaintTextSizeIfNeeded("Warning: StoredResources modification attempted on locked instance"); return;
         }
         int i = storedResources.b.size;
         Object[] objArrA = storedResources.b.a();
@@ -226,7 +226,7 @@ public final class StoredResources {
 
     public void b(StoredResources storedResources, double d, double d2) {
         if (this.c) {
-            throw new RuntimeException("StoredResources are locked");
+            com.corrodinggames.rts.gameFramework.GameEngine.updatePaintTextSizeIfNeeded("Warning: StoredResources modification attempted on locked instance"); return;
         }
         int i = storedResources.b.size;
         Object[] objArrA = storedResources.b.a();
@@ -473,7 +473,7 @@ public final class StoredResources {
 
     public void a(GameInputStream gameInputStream) throws IOException {
         if (this.c) {
-            throw new RuntimeException("StoredResources are locked");
+            com.corrodinggames.rts.gameFramework.GameEngine.updatePaintTextSizeIfNeeded("Warning: StoredResources modification attempted on locked instance"); return;
         }
         if (gameInputStream.readByte() == -1) {
             return;

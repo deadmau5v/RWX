@@ -464,4 +464,7 @@ tasks.register("writeP2PRendezvousArgfile") {
         println(file.absolutePath)
     }
 }
-dependencies { implementation(project(":android-stubs")) }
+dependencies {
+    implementation(project(":android-stubs"))
+    implementation(project(":r-compat"))
+}

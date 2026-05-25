@@ -10,7 +10,8 @@ kotlin {
 }
 
 dependencies {
-    api(project(":android-stubs"))
+    compileOnly(project(":android-stubs"))
+    compileOnly(project(":r-compat"))
     compileOnly(files("../libs/android.jar"))
     implementation(files("../libs/android-platform-lib.jar"))
     implementation(libs.httpclient)
@@ -26,5 +27,7 @@ tasks.withType<JavaCompile>().configureEach {
     val stubsClasses = project(":android-stubs").layout.buildDirectory.dir("classes/java/main")
     classpath = files(stubsClasses) + classpath
 }
+
+
 
 
